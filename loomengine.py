@@ -4,7 +4,7 @@ import os
 import signal
 import tkinter as tk
 import customtkinter as ctk
-import textwrap
+import textwrap 
 
 # --- 1. Standalone Detection & Version Check ---
 # PyInstaller sets the _MEIPASS attribute when running as a bundled app
