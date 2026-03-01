@@ -78,5 +78,6 @@ LoomCompiler is a fast but not a reliable way to distribute your apps. Here's th
 | Including all used python-libraries | ✅ | ✅ |
 | Including all used python-libraries outside of .loomscr |  | ✅ |
 | Including other folders/assets |  | ✅ |
-| A complete IDE(Integrated Development Environment) |  | ✅ |        
+| A complete IDE(Integrated Development Environment) |  | ✅ |    
+
 Also LoomCompiler is only the compiler(translator .loomscr -> .bin/.exe) that is built in the LoomBuilder.
