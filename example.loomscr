@@ -1,0 +1,84 @@
+# 1. Global Configuration
+# Set the visual style of the application
+theme(m="dark", c="red")
+
+# 2. Window Initialization
+# Create the main application window and center it on the display
+var win = window("Loomscript Full Feature Demo")
+win.resize(800, 500)
+win.center()
+
+# 3. Menu System
+# Define a top-level menu bar with cascading sub-menus
+var main_menu = menu(in=win)
+var file_menu = menu(in=main_menu)
+var help_menu = menu(in=main_menu)
+
+# Add commands to sub-menus
+file_menu.addcommand(label="New Project", command=lambda: onclick:inpy{print("New Project Created") })
+file_menu.addseparator()
+file_menu.addcommand(label="Exit", onclick:win.hide())
+
+help_menu.addcommand(label="Documentation", onclick:inpy {import webbrowser
+webbrowser.open("https://Zhan2os1ks.github.io/loomscript/help/")
+})
+
+# Attach sub-menus to the main bar
+main_menu.addcascade(label="File", menu=file_menu)
+main_menu.addcascade(label="Help", menu=help_menu)
+
+# 4. UI Layout & Widgets
+# Using 'pack' for header placement
+var header = label("Loomscript Ecosystem", in=win)
+header.pack(pady=20, anchor="n")
+
+# 5. Logic Variables
+# Demonstrating internal variable storage
+var counter = 0
+var app_status = "Ready"
+
+# 6. Interactive Elements
+var status_lbl = label("Current Status: Ready", in=win)
+status_lbl.pack(pady=10)
+
+var btn_logic = button("Execute InPy Logic", in=win)
+btn_logic.pack(pady=5)
+
+# 7. InPy Block (Advanced Python Injection)
+# This block runs native Python within the Loomscript environment
+btn_logic.onclick:inpy {
+# Accessing Loomscript variables from the memory object
+global counter
+counter += 1
+# Updating UI components directly using CustomTkinter methods
+status_lbl.configure(text=f"Logic Executed {counter} times")
+if counter >= 5:
+    btn_logic.configure(fg_color="green", text="Threshold Reached")
+    print("User reached the interaction threshold.")
+}
+
+# 8. Loop and Conditional Demonstration (Parser Logic)
+# The parser handles these blocks before the mainloop starts
+var items = ["Terminal", "Compiler", "Debugger"]
+
+for(item in items) {
+    inpy {
+    print(f"Initializing Loom-Module: {item}")
+    }
+}
+
+if(counter == 0) {
+    inpy {
+    print("Application started successfully in clean state.")
+    }
+}
+
+# 9. Additional Widgets
+var check_box = checkbox("Enable Advanced Debugging", in=win)
+check_box.pack(pady=10)
+
+var radio_1 = radio("Mode A", in=win)
+radio_1.pack(padx=20, side="left")
+
+var radio_2 = radio("Mode B", in=win)
+radio_2.pack(padx=20, side="right")
