@@ -29,9 +29,9 @@ loomcompiler <file.loomscr>
 ### 3. Loom-Debugger: Logic Verification
 Debug scripts and track variable states:
 ```
-loomdebug <file.loomscr>
+loomit <file.loomscr> -d
 ```
-### Arguments(for all command):
+### Arguments(for all commands):
 Get the release number / version info:
 ```
 loomit -[-v]ersion 
@@ -43,6 +43,10 @@ loomit -[-h]elp
 Update LoomScript(v1.0+), get update info for LoomScript(vBETA-1):
 ```
 loomit -[-u]pdate
+```
+Debug scripts:
+```
+loomit -[-d]ebug
 ```
 >[!NOTE]
 >`loomit --update` argument works only on `loomit` command.  
@@ -59,3 +63,27 @@ Documentation is available at: Zhan2os1ks.github.io/loomscript/help/ .
 
 ## Loom-Compiler
 Loom-compiler is a utility written in Loomscript for quick app testing. It is not recommended for stable releases. For production-grade builds, use Loom-Builder.
+
+## Loom-Builder
+>[!NOTE]
+>Development-Phase, I assume it will be packaged with vBETA-2
+### Description
+Loom-builder is an IDE(Integrated Development Environment). It's functionallity is far beyound compiling and packaging. You can edit and debug the code, include multiple folders and more!
+### Why not LoomCompiler?
+LoomCompiler is a fast but not reliable way to distribute your apps. Here's the full breakthrough:
+| Pro/Con | LoomCompiler | Loombuilder | 
+| :---: | :---: | :---: |
+| Compiling script to a linux executable | ✅ | ✅ | 
+| Compiling script to a windows executable  |  | ✅ |
+| Including all used python-libraries | ✅ | ✅ |
+| Including all used python-libraries outside of .loomscr |  | ✅ |
+| Including other folders/assets |  | ✅ |
+| A complete IDE(Integrated Development Environment) |  | ✅ |        
+Also LoomCompiler is only the compiler(translator .loomscr -> .bin/.exe) that is built in the LoomBuilder.
+### Why it's not ready now?
+Because it's really hard to make a stable version of Loomscript while also making a Builder for the apps on **loomscript**!
+## What will be added next?
+I think I'll add more standart python programms later.
+## Special Thanks:
+- @github <- let me host this
+- gemini.google.com <- helped with code formatting
